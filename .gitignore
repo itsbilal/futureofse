@@ -25,3 +25,5 @@
 /public/packs-test
 /node_modules
 /vendor/
+
+*.swp

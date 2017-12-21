@@ -1,0 +1,8 @@
+stages:
+  -
+    type: ident
+  -
+    type: questions
+    questions:
+      - "What did you have for breakfast today?"
+      - "Is 2017 real?"
