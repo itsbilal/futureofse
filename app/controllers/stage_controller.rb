@@ -17,6 +17,8 @@ class StageController < ApplicationController
     if STAGES[params[:num]].type == 'ident'
       v = Voter.new(params.require(:stage).permit(:class, :name, :email, :current, :reason))
       v.save
+
+      render json: {:uuid => v.uuid}
     else
       # Handle other stages
     end

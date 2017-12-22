@@ -7,14 +7,17 @@ import IdentStageView from './ident'
 import { nextStage } from 'actions/stage'
 
 class StageView extends React.Component {
-  onNext(stageView, e) {
+  onNext(e) {
     if (this.props.numStages - 1 == this.props.currentStage) {
       return
     }
 
     // Submit the current stage if validation succeeds
-    stageView.submit()
+    this.submitFunc()
       .then(() => this.props.nextStage())
+  }
+  submitHook(submitFunc) {
+    this.submitFunc = submitFunc;
   }
   render() {
     let stage = null
@@ -24,13 +27,13 @@ class StageView extends React.Component {
     }
     switch (this.props.current.type) {
       case 'ident':
-        stage = <IdentStageView />
+        stage = <IdentStageView submitHook={this.submitHook.bind(this)} />
         break
       case 'final':
-        stage = <FinalStageView />
+        stage = <FinalStageView submitHook={this.submitHook.bind(this)} />
         break
       case 'questions':
-        stage = <QuestionsStageView />
+        stage = <QuestionsStageView submitHook={this.submitHook.bind(this)} />
         break
       default:
         console.log(`error: got ${this.props.current.ident} as stage type`)
@@ -38,7 +41,7 @@ class StageView extends React.Component {
 
     return <div className="container stage">
       { stage }
-      <button type="button" className="btn btn-primary" onClick={this.onNext.bind(this, stage)}>Next</button>
+      <button type="button" className="btn btn-primary" onClick={this.onNext.bind(this)}>Next</button>
     </div>
   }
 }

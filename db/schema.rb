@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171221043519) do
+ActiveRecord::Schema.define(version: 20171222043841) do
 
   create_table "voters", force: :cascade do |t|
     t.integer "class", null: false
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20171221043519) do
     t.text "reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "uuid"
+    t.index ["uuid"], name: "index_voters_on_uuid"
   end
 
 end

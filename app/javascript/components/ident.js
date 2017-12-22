@@ -2,8 +2,39 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+import { setVoterKey } from 'actions/voter'
+
 class IdentStageView extends React.Component {
   submit() {
+    let former = this.sexited.value
+    let cls = this.clsselect.value
+    let known = (this.state && this.state.known)
+
+    let requestBody = {
+      authenticity_token: window._token,
+      'class': cls,
+      current: (former == 0 ? true : false),
+    }
+
+    if (known) {
+      let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      let email = this.email.value;
+      if (!re.test(email)) {
+        return Promise.reject("Invalid email address")
+      }
+      requestBody.name = this.name.value;
+      requestBody.email = email;
+    }
+
+    return fetch(`/api/stage/${this.props.currentStage}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    })
+    .then(resp => resp.json())
+    .then(data => this.onVoterKey(data.uuid))
   }
   onAnonChange(known) {
     if (known === true) {
@@ -15,6 +46,9 @@ class IdentStageView extends React.Component {
         known: false
       })
     }
+  }
+  componentDidMount() {
+    this.props.submitHook(this.submit.bind(this))
   }
   knownForm() {
     if (this.state && this.state.known == true) {
@@ -40,11 +74,11 @@ class IdentStageView extends React.Component {
       </p>
       Choose what best describes you:
       <div className="ident-header form-inline">
-        I am a &nbsp;<select className="form-control">
+        I am a &nbsp;<select className="form-control" ref={(sexited) => this.sexited = sexited} >
           <option value="0">current/graduated</option>
           <option value="1">former/non-SE grad</option>
         </select>
-        &nbsp; SE &nbsp;<select className="form-control" defaultValue={2019}>
+        &nbsp; SE &nbsp;<select className="form-control" ref={(cls) => this.clsselect = cls } defaultValue={2019}>
           { this.props.current.classes.map((cls) => (
             <option key={parseInt(cls)} value={parseInt(cls)}>{cls}</option>
           )) }
@@ -68,6 +102,9 @@ class IdentStageView extends React.Component {
           </label>
         </div>
         {this.knownForm()}
+        <div className="ident-disclaimer">
+          If anything in the poll breaks, please let Bilal know at me@itsbilal.com. Otherwise, sit back, relax, and don't forget to just &#x1f171; urself!
+        </div>
       </div>
     </div>
   }
@@ -83,6 +120,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    onVoterKey: key => dispatch(setVoterKey(key))
   }
 }
 
