@@ -1,8 +1,50 @@
 stages:
   -
     type: ident
+    message: Lorem ipsum dolor sit amet
+    classes:
+      - 2014
+      - 2015
+      - 2016
+      - 2017
+      - 2018
+      - 2019
+      - 2020
+      - 2021
+      - 2022
   -
     type: questions
     questions:
       - "What did you have for breakfast today?"
       - "Is 2017 real?"
+  -
+    type: final
+    contact:
+      webmaster:
+        -
+          name: Bilal Akhtar
+          email: me@itsbilal.com
+      curriculum:
+        -
+          name: Bilal Akhtar
+          type: Student rep
+          email: mbakhtar@uwaterloo.ca
+        -
+          name: Patrick Lam
+          type: SE Director
+          email: se-director@uwaterloo.ca
+        -
+          name: Jason Milasincic
+          type: Student rep
+          email: jmilasin@uwaterloo.ca
+      classreps:
+        2019:
+          -
+            name: Bilal Akhtar
+            email: mbakhtar@uwaterloo.ca
+          -
+            name: Saksham Sachdev
+            email: s7sachde@uwaterloo.ca
+          -
+            name: Jason Milasincic
+            email: jmilasin@uwaterloo.ca
