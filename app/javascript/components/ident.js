@@ -11,8 +11,7 @@ class IdentStageView extends React.Component {
     let known = (this.state && this.state.known)
 
     let requestBody = {
-      authenticity_token: window._token,
-      'class': cls,
+      cls,
       current: (former == 0 ? true : false),
     }
 
@@ -31,10 +30,10 @@ class IdentStageView extends React.Component {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(requestBody),
+      body: JSON.stringify({stage: requestBody}),
     })
     .then(resp => resp.json())
-    .then(data => this.onVoterKey(data.uuid))
+    .then(data => this.props.onVoterKey(data.uuid))
   }
   onAnonChange(known) {
     if (known === true) {

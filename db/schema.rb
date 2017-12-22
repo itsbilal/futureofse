@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20171222043841) do
 
   create_table "voters", force: :cascade do |t|
-    t.integer "class", null: false
+    t.integer "cls", null: false
     t.string "name"
     t.string "email"
     t.boolean "current", null: false
