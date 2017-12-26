@@ -3,6 +3,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import IdentStageView from './ident'
+import QuestionsStageView from './questions'
+import FinalStageView from './final'
 
 import { nextStage } from 'actions/stage'
 

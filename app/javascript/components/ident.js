@@ -2,13 +2,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import { setVoterKey } from 'actions/voter'
+import { setVoterKey, setClass } from 'actions/voter'
 
 class IdentStageView extends React.Component {
   submit() {
     let former = this.sexited.value
     let cls = this.clsselect.value
     let known = (this.state && this.state.known)
+
+    this.setClass(cls)
 
     let requestBody = {
       cls,
@@ -119,7 +121,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onVoterKey: key => dispatch(setVoterKey(key))
+    onVoterKey: key => dispatch(setVoterKey(key)),
+    setClass: cls => dispatch(setClass(cls)),
   }
 }
 
