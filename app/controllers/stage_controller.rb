@@ -22,6 +22,27 @@ class StageController < ApplicationController
       render json: {:uuid => v.uuid}
     else
       # Handle other stages
+      v = Voter.find_by! uuid: params[:voterKey]
+
+      s = StageResponse.new
+      s.voter_id = v.id
+      s.stage = params[:num].to_i
+      s.stagetype = STAGES[params[:num].to_i]['type']
+
+      s.save
+
+      if s.stagetype == 'questions'
+        params[:stage][:questions].each_with_index do |ans, idx|
+          question = Question.new
+          question.stage_response_id = s.id
+          question.question = idx
+          question.answer = ans
+
+          question.save
+        end
+      end
+
+      render json: {:success => true}
     end
   end
 end

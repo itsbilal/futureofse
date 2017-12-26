@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  voter_id: 1
+  stage: 1
+  stagetype: MyString
+
+two:
+  voter_id: 1
+  stage: 1
+  stagetype: MyString

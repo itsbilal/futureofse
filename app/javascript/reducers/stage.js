@@ -9,7 +9,7 @@ function reducer(state = initialState, action) {
   switch (action.type) {
     case 'STAGES_LOADED':
       return Object.assign({}, state, {
-        stages: action.stages,
+        stages: action.stages.slice(0),
         current: action.stages[state.num],
       })
     case 'STAGE_NEXT':
@@ -21,9 +21,8 @@ function reducer(state = initialState, action) {
         current: (state.stages[action.stage] || {}),
       })
     default:
-      return initialState
+      return state
   }
-  return initialState
 }
 
 export default reducer

@@ -1,4 +1,5 @@
 class Voter < ApplicationRecord
+  has_many :stage_responses
   before_create :add_uuid
 
   private

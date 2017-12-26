@@ -21,10 +21,13 @@ class QuestionsStageView extends React.Component {
     })
     .then(resp => resp.json())
   }
+  constructor(props) {
+    super(props)
+    this.questionRefs = Array(this.props.questions.length)
+  }
   componentDidMount() {
     this.props.submitHook(this.submit.bind(this))
 
-    this.questionRefs = Array(this.props.questions.length)
   }
   render() {
     return (<div className="questions-stage">
@@ -42,7 +45,7 @@ class QuestionsStageView extends React.Component {
   }
 }
 
-const mapStateToProps = (props) => {
+const mapStateToProps = (state) => {
   return {
     currentStage: state.stage.num,
     current: state.stage.current,
@@ -51,13 +54,13 @@ const mapStateToProps = (props) => {
   }
 }
 
-const mapDispatchToProps = (props) => {
+const mapDispatchToProps = (dispatch) => {
   return {
   }
 }
 
 const Cont = connect(
-  mapStageToProps,
+  mapStateToProps,
   mapDispatchToProps,
 )(QuestionsStageView)
 

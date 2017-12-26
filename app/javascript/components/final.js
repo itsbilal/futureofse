@@ -11,7 +11,7 @@ class FinalStageView extends React.Component {
   }
   render() {
     let classreps = null
-    if (this.props.cls && this.props.contact.classreps.hasOwnProperty(cls)) {
+    if (this.props.cls && this.props.contact.classreps.hasOwnProperty(this.props.cls)) {
       classreps = (<div className="col-md">
           For general class-specific comments/concerns, contact your class reps:
           <ul>
@@ -26,7 +26,7 @@ class FinalStageView extends React.Component {
         <h4>Thanks for submitting your feedback!</h4>
         <p>
           If you have any suggestions/issues/comments about this website, please let me (Bilal) know by email:
-          <a href="mailto:me@itsbilal.com">. Or if you're adventurous,
+          <a href="mailto:me@itsbilal.com">me@itsbilal.com</a>. Or if you're adventurous,
           you can dive into and fix <a href="http://github.com/itsbilal/futureofse">this site's source code</a> yourself - it's all
           open source &#x1f60a;
         </p>
@@ -47,22 +47,22 @@ class FinalStageView extends React.Component {
   }
 }
 
-const mapStateToProps = (props) => {
+const mapStateToProps = (state) => {
   return {
     currentStage: state.stage.num,
     current: state.stage.current,
     contact: state.stage.current.contact,
-    cls: state.stage.voter.cls,
+    cls: state.voter.cls,
   }
 }
 
-const mapDispatchToProps = (props) => {
+const mapDispatchToProps = (dispatch) => {
   return {
   }
 }
 
 const Cont = connect(
-  mapStageToProps,
+  mapStateToProps,
   mapDispatchToProps,
 )(FinalStageView)
 
