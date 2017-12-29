@@ -48,3 +48,188 @@ stages:
           -
             name: Jason Milasincic
             email: jmilasin@uwaterloo.ca
+courses:
+  MATH 135:
+    title: Algebra for Honours Math
+    desc: ""
+    movable: false
+  MATH 117:
+    title: Calculus for Engineering
+    desc: ""
+    movable: false
+  MATH 119:
+    title: Calculus 2 for Engineering
+    desc: ""
+    movable: false
+    prereqs:
+      - MATH 117
+  CS 137:
+    title: Programming principles
+    desc: ""
+    movable: false
+  CS 138:
+    title: Introduction to Data Abstraction and Implementation
+    desc: ""
+    prereqs:
+      - CS 137
+    movable: false
+  ECE 105:
+    title: Physics for Electrical Engineering
+    desc: ""
+    movable: false
+  ECE 106:
+    title: Physics 2 for Electrical Engineering
+    desc: ""
+    movable: false
+    prereqs:
+      - ECE 105
+  ECE 140:
+    title: Linear circuits
+    desc: ""
+    movable: false
+  ECE 124:
+    title: Digital circuits
+    desc: ""
+    movable: false
+  SE 101:
+    title: Introduction to Methods of Software Engineering
+    desc: ""
+    weight: 0.5
+    movable: false
+  CS 241:
+    title: Foundations of Sequential Programs
+    desc: "The relationship between high-level languages and the computer architecture that underlies their implementation, including basic machine architecture, assemblers, specification and translation of programming languages, linkers and loaders, block-structured languages, parameter passing mechanisms, and comparison of programming languages."
+    droppable: false
+    prereqs:
+      - CS 138
+  SE 212:
+    title: Logic and Computation
+    desc: "Formal logic. Proof systems and styles. Rudimentary model theory. Formal models of computation. Logic-based specification. Correctness proofs. Applications in software engineering."
+    droppable: false
+    prereqs:
+      - MATH 135
+  ECE 222:
+    title: Digital Computers
+    desc: "Computer organization. Memory units, control units, I/O operations. Assembly language programming, translation and loading. Arithmetic logic units. Computer case studies."
+    droppable: false
+    prereqs:
+      - ECE 124
+      - CS 137
+  STAT 206:
+    title: Statistics for Software Engineering
+    desc: "Empirical problem solving with applications to software engineering. An introduction to probability theory. An introduction to distribution theory and to methods of statistical inference, including confidence intervals and hypothesis testing. An introduction to regression."
+    prereqs:
+      - MATH 115
+      - MATH 119
+  CHE 102:
+    title: Chemistry for Engineers
+    desc: "Chemical principles with applications in engineering. Stoichiometric calculations, properties of gases, properties of liquids and solutions, gas phase chemical equilibrium, ionic equilibrium in aqueous solution, oxidation-reduction reactions, chemical kinetics."
+    dropMessage: We wish it were that easy. Patrick is trying his best to lobby CEAB into relaxing this requirement for SE, but no guarantees if that will work. Remember, for the purpose of this course designer view, you're pretending to be the SE director, not a dictator of Canada.
+  COMM Elective:
+    title: Communications elective
+    desc: See SE calendar for list of communications courses
+    elective: true
+    movable: false
+  Elective:
+    title: Generic elective slot
+    desc: See SE calendar for list of electives
+    elective: true
+  CS 240:
+    title: Data Structures and Data Management
+    desc: "Introduction to widely used and effective methods of data organization, focusing on data structures, their algorithms, and the performance of these algorithms. Specific topics include priority queues, sorting, dictionaries, data structures for text processing."
+    prereqs:
+      - SE 212
+      - CS 241
+  CS 247:
+    title: Software Engineering Principles
+    desc: "Systematic methods for designing, coding, testing, and documenting medium-sized programs. Major topics include abstraction, modularity, software modeling, object-oriented programming and design, generic programming, testing and debugging."
+    prereqs:
+      - CS 241
+  MATH 239:
+    title: Intro to Combinatorics
+    desc: "Introduction to graph theory: colourings, matchings, connectivity, planarity. Introduction to combinatorial analysis: generating series, recurrence relations, binary strings, plane trees."
+    prereqs:
+      - MATH 135
+  MATH 213:
+    title: Signals and systems
+    desc: "Fourier series. Differential equations. Laplace transforms. Applications to circuit analysis."
+    prereqs:
+      - MATH 119
+  MSCI 261:
+    title: Engineering Economics: Financial Management for Engineers
+    desc: "Introductory Finance: time value of money, cash flow analysis. Investment evaluation methods: present worth, annual worth and internal rate of return. Depreciation models and asset replacement analysis. The impact of inflation, taxation, uncertainty and risk on investment decisions."
+programs:
+  current:
+    1A:
+      courses:
+        - CS 137
+        - MATH 135
+        - MATH 115
+        - MATH 117
+        - ECE 105
+        - SE 101
+    1B:
+      courses:
+        - CS 138
+        - MATH 119
+        - ECE 140
+        - ECE 124
+        - ECE 106
+      nces:
+        - First coop
+    2A:
+      courses:
+        - CS 241
+        - ECE 222
+        - SE 212
+        - STAT 206
+        - CHE 102
+        - COMM Elective
+    2B:
+      courses:
+        - CS 240
+        - CS 247
+        - MATH 239
+        - MSCI 261
+        - MATH 213
+        - Elective
+      nces:
+        - WKRPT
+        - TPM
+  proposed:
+    1A:
+      courses:
+        - CS 137
+        - MATH 135
+        - MATH 115
+        - MATH 117
+        - ECE 105
+        - SE 101
+    1B:
+      courses:
+        - CS 138
+        - MATH 119
+        - ECE 140
+        - ECE 124
+        - ECE 106
+      nces:
+        - First coop
+    2A:
+      courses:
+        - CS 247
+        - MATH 239
+        - SE 212
+        - CHE 102
+        - COMM Elective
+    2B:
+      courses:
+        - CS 241
+        - ECE 222
+        - STAT 206
+        - CS 240
+        - MSCI 261
+        - MATH 213
+        - Elective
+      nces:
+        - WKRPT
+        - TPM
