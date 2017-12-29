@@ -18,6 +18,27 @@ stages:
       - "What did you have for breakfast today?"
       - "Is 2017 real?"
   -
+    type: programview
+    program: current
+    title: This is how the SE program looks right now. The SE class of 2022 is following this calendar.
+    commentbox: "Any general thoughts/comments about the current structure of the program? In particular, what works well and what doesn't?"
+  -
+    type: programview
+    program: proposed
+    compare: current
+    title: This is a proposed program calendar that the curriculum committee is considering.
+    commentbox: "Any general thoughts/comments about this program structure?"
+  -
+    type: programdesign
+    program: proposed
+    compare: current
+    extras:
+      - Elective
+      - Elective
+      - ECE 192
+    title: On this page, you get to design your own SE program. What course sequence do you think would lead to the best program?
+    commentbox: "Any other general comments?"
+  -
     type: final
     contact:
       webmaster:
@@ -158,6 +179,11 @@ courses:
   MSCI 261:
     title: Engineering Economics: Financial Management for Engineers
     desc: "Introductory Finance: time value of money, cash flow analysis. Investment evaluation methods: present worth, annual worth and internal rate of return. Depreciation models and asset replacement analysis. The impact of inflation, taxation, uncertainty and risk on investment decisions."
+  ECE 192:
+    title: Engineering Economics and social impact
+    desc: "A future ECE half-course that will cover just enough engineering economics to meet accreditation, plus have some additional lectures on social impact. Note that moving to this course does not eliminate the list A impact course requirement for SE."
+    weight: 0.5
+    replaces: MSCI 261
 programs:
   current:
     1A:
