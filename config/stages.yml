@@ -74,6 +74,10 @@ courses:
     title: Algebra for Honours Math
     desc: ""
     movable: false
+  MATH 115:
+    title: Linear Algebra for Engineering
+    desc: ""
+    movable: false
   MATH 117:
     title: Calculus for Engineering
     desc: ""
@@ -177,7 +181,7 @@ courses:
     prereqs:
       - MATH 119
   MSCI 261:
-    title: Engineering Economics: Financial Management for Engineers
+    title: "Engineering Economics: Financial Management for Engineers"
     desc: "Introductory Finance: time value of money, cash flow analysis. Investment evaluation methods: present worth, annual worth and internal rate of return. Depreciation models and asset replacement analysis. The impact of inflation, taxation, uncertainty and risk on investment decisions."
   ECE 192:
     title: Engineering Economics and social impact
@@ -186,6 +190,11 @@ courses:
     replaces: MSCI 261
 programs:
   current:
+    terms:
+      - 1A
+      - 1B
+      - 2A
+      - 2B
     1A:
       courses:
         - CS 137
@@ -223,6 +232,11 @@ programs:
         - WKRPT
         - TPM
   proposed:
+    terms:
+      - 1A
+      - 1B
+      - 2A
+      - 2B
     1A:
       courses:
         - CS 137

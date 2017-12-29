@@ -1,12 +1,36 @@
-STAGES = YAML.load_file(Rails.root.join('config/stages.yml'))['stages']
+STAGECONFIG = YAML.load_file(Rails.root.join('config/stages.yml'))
+STAGES = STAGECONFIG['stages']
+COURSES = STAGECONFIG['courses']
+PROGRAMS = STAGECONFIG['programs'].transform_values do |program|
+  program['terms'].each do |term|
+    program[term]['courses'] = program[term]['courses'].map do |course|
+      course_hash = { :course => course }
+      if COURSES[course].nil?
+        raise "Could not find #{course} in COURSES\n"
+      end
+      course_hash.merge(COURSES[course])
+    end
+  end
+
+  program
+end
 
 class StageController < ApplicationController
   protect_from_forgery with: :null_session
   def index
-    render json: STAGES
+    stages = STAGES.clone.map do |stage|
+      stage = stage.clone
+      if stage['type'] == 'programview' or stage['type'] == 'programdesign'
+        stage['program'] = PROGRAMS[stage['program']].clone
+      end
+      
+      stage
+    end
+    render json: stages
   end
 
   def get
+    # DEPRECATED - try not to use
     render json: STAGES[params[:num]]
   end
 

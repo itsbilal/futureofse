@@ -37,6 +37,8 @@ class StageView extends React.Component {
       case 'questions':
         stage = <QuestionsStageView submitHook={this.submitHook.bind(this)} />
         break
+      case 'programview':
+        stage = <ProgramView submitHook={this.submitHook.bind(this)} comments=true />
       default:
         console.log(`error: got ${this.props.current.ident} as stage type`)
     }
