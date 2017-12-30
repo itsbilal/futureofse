@@ -1,14 +1,34 @@
 
 import React from 'react'
+import {connect} from 'react-redux'
+
+import { sidebarCourseChanged } from 'actions/sidebar'
 
 class Course extends React.Component {
   render() {
     return (
       <div className="course course-course">
-        {this.props.course.course} &mdash; {this.props.course.title}
+        <button className="btn btn-link" type="button" onClick={this.props.courseClicked.bind(this, this.props.course)}>
+          {this.props.course.course}
+        </button>
       </div>
     )
   }
 }
 
-export default Course
+const mapStateToProps = (state) => {
+  return {}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    courseClicked: (course) => dispatch(sidebarCourseChanged(course)),
+  }
+}
+
+const CourseCont = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Course)
+
+export default CourseCont

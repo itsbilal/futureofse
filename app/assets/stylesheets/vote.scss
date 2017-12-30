@@ -16,7 +16,24 @@
         padding: 10px;
         text-overflow: ellipsis;
         overflow: hidden;
+        
+        .btn-link {
+          cursor: pointer;
+        }
       }
     }
   }
+}
+
+.sidebar {
+  background: #eee;
+  border-left: 1px solid #ccc;
+}
+
+.sidebar-open {
+  display: block;
+}
+
+.sidebar-closed {
+  display: none;
 }
