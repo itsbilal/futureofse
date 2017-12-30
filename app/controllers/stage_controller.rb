@@ -1,6 +1,6 @@
 STAGECONFIG = YAML.load_file(Rails.root.join('config/stages.yml'))
 STAGES = STAGECONFIG['stages']
-COURSES = STAGECONFIG['courses']
+=begin
 PROGRAMS = STAGECONFIG['programs'].transform_values do |program|
   program['terms'].each do |term|
     program[term]['courses'] = program[term]['courses'].map do |course|
@@ -14,10 +14,12 @@ PROGRAMS = STAGECONFIG['programs'].transform_values do |program|
 
   program
 end
+=end
 
 class StageController < ApplicationController
   protect_from_forgery with: :null_session
   def index
+=begin
     stages = STAGES.clone.map do |stage|
       stage = stage.clone
       if stage['type'] == 'programview' or stage['type'] == 'programdesign'
@@ -26,12 +28,13 @@ class StageController < ApplicationController
       
       stage
     end
-    render json: stages
+=end
+    render json: STAGECONFIG
   end
 
   def get
     # DEPRECATED - try not to use
-    render json: STAGES[params[:num]]
+    render json: STAGECONFIG['stages'][params[:num]]
   end
 
   def put

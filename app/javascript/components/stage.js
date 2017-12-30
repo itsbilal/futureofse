@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import IdentStageView from './ident'
 import QuestionsStageView from './questions'
 import FinalStageView from './final'
+import ProgramView from './programview'
 
 import { nextStage } from 'actions/stage'
 
@@ -38,7 +39,7 @@ class StageView extends React.Component {
         stage = <QuestionsStageView submitHook={this.submitHook.bind(this)} />
         break
       case 'programview':
-        stage = <ProgramView submitHook={this.submitHook.bind(this)} comments=true />
+        stage = <ProgramView submitHook={this.submitHook.bind(this)} comments='true' />
       default:
         console.log(`error: got ${this.props.current.ident} as stage type`)
     }
