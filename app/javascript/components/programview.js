@@ -17,10 +17,8 @@ class ProgramView extends React.Component {
     return (
       <div className="stage-program stage-programview container-fluid">
         <div className="row">
-          <div className={this.props.sidebarShown ? "col-8" : "col-12"}>
-            <div className="container-fluid">
-              <Program editable="false" program={this.props.programs[this.props.current.program]} courses={this.props.courses} />
-            </div>
+          <div className={"stage-program-main " + (this.props.sidebarShown ? "col-8" : "col-12")}>
+            <Program editable="false" program={this.props.programs[this.props.current.program]} courses={this.props.courses} />
           </div>
           <Sidebar />
         </div>

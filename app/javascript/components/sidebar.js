@@ -6,12 +6,30 @@ import { sidebarToggled } from 'actions/sidebar'
 
 class Sidebar extends React.Component {
   render() {
+    let flowify = (course) => course.replace(/ /g, '').toLowerCase()
+
     let sidebarContent = <div />
 
     if (this.props.display == "course" && this.props.course) {
+      let flowPart = (<div>
+            <a href={`https://uwflow.com/course/${flowify(this.props.course.course)}`}>View on UWFlow</a>
+          </div>)
+
       sidebarContent = (<div className="sidebar-content">
           <h4>{this.props.course.course}</h4>
           <h5>{this.props.course.title}</h5>
+          <p>{this.props.course.desc}</p>
+          <div>
+            {this.props.course.elective ? null : flowPart }
+          </div>
+          <div className="sidebar-content-course-prereqs">
+            Prerequisites:
+            <ul>
+              {(this.props.course.prereqs || []).map((prereq) => (
+                <li key={prereq}>{prereq}</li>
+              ))}
+            </ul>
+          </div>
         </div>)
     }
     return (

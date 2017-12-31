@@ -2,10 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.stage-program{
+  .stage-program-main {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
 .program {
   overflow-x: scroll;
 
   .term {
+    width: 330px;
+    display:inline-block;
+
+    margin: 10px;
     .courses-list {
       padding: 5px;
 
@@ -28,6 +39,12 @@
 .sidebar {
   background: #eee;
   border-left: 1px solid #ccc;
+  .btn {
+    margin-top: 10px;
+  }
+  .sidebar-content {
+    margin-top: 20px;
+  }
 }
 
 .sidebar-open {

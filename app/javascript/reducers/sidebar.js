@@ -1,8 +1,8 @@
 
 const initialState = {
   open: false,
-  course: {},
-  program: {},
+  course: null,
+  program: null,
   display: "course",
 }
 

@@ -9,7 +9,7 @@ class Term extends React.Component {
       Object.assign({}, {course}, this.props.courses[course])))
 
     return (
-      <div className="col-md-4 term">
+      <div className="term">
         <div className="card">
           <div className="card-body">
             <h5 className="card-title">{this.props.name}</h5>
