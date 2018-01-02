@@ -67,6 +67,12 @@ class StageController < ApplicationController
 
           question.save
         end
+      elsif s.stagetype == 'programview'
+        pv = ProgramView.new
+        pv.stage_response_id = s.id
+        pv.comment = params[:stage][:comment]
+
+        pv.save
       end
 
       render json: {:success => true}

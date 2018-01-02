@@ -2,6 +2,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import Program from './program'
+
 import { sidebarToggled } from 'actions/sidebar'
 
 class Sidebar extends React.Component {
@@ -31,7 +33,12 @@ class Sidebar extends React.Component {
             </ul>
           </div>
         </div>)
+    } else if (this.props.display == "program" && this.props.program) {
+      sidebarContent = (<div className="sidebar-content">
+          <Program program={this.props.program} courses={this.props.courses} />
+        </div>)
     }
+
     return (
       <div className={"col-4 sidebar " + (this.props.open ? "sidebar-open" : "sidebar-closed")}>
         <button onClick={this.props.toggle.bind(this)} type="button" className="btn btn-outline-primary">
@@ -49,6 +56,7 @@ const mapStateToProps = (state) => {
     display: state.sidebar.display,
     course: state.sidebar.course,
     program: state.sidebar.program,
+    courses: state.stage.courses,
   }
 }
 

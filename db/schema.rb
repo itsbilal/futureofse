@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171226045430) do
+ActiveRecord::Schema.define(version: 20180102004907) do
+
+  create_table "program_views", force: :cascade do |t|
+    t.integer "stage_response_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stage_response_id"], name: "index_program_views_on_stage_response_id"
+  end
 
   create_table "questions", force: :cascade do |t|
     t.integer "stage_response_id"
