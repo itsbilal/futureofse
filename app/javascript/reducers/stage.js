@@ -5,6 +5,7 @@ const initialState = {
   programs: {},
   courses: {},
   current: {},
+  editor: {},
 }
 
 function reducer(state = initialState, action) {
@@ -20,10 +21,33 @@ function reducer(state = initialState, action) {
       action.stage = state.num + 1
       // passthrough
     case 'STAGE_CHANGED':
+      let current = state.stages[action.stage] || {}
+      var editor = {}
+
+      if (current.type == 'programdesign') {
+        editor = Object.assign({}, state.programs[current.program], {none: current.extras || []})
+      }
+
       return Object.assign({}, state, {
         num: action.stage,
         current: (state.stages[action.stage] || {}),
+        editor,
       })
+    case 'EDITOR_COURSE_MOVED':
+      var editor = Object.assign({}, state.editor)
+      let {from, to, course} = action
+
+      if (typeof course != "string") {
+        course = course.course
+      }
+
+      let idx = editor[from].indexOf(course)
+      if (idx !== -1) {
+        editor[from].splice(idx, 1)
+      }
+      editor[to].push(course)
+
+      return Object.assign({}, state, {editor})
     default:
       return state
   }

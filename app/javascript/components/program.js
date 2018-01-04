@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-import Term from './term'
+import { Term, EditableTerm } from './term'
 
 class Program extends React.Component {
   render() {
