@@ -41,11 +41,11 @@ function reducer(state = initialState, action) {
         course = course.course
       }
 
-      let idx = editor[from].indexOf(course)
+      let idx = editor[from].courses.indexOf(course)
       if (idx !== -1) {
-        editor[from].splice(idx, 1)
+        editor[from].courses.splice(idx, 1)
       }
-      editor[to].push(course)
+      editor[to].courses.push(course)
 
       return Object.assign({}, state, {editor})
     default:

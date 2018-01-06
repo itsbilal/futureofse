@@ -1,16 +1,16 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
 
 import Program from './program'
 import Sidebar from './sidebar'
 
 import { sidebarProgramChanged } from 'actions/sidebar'
 
-@DragDropContext(HTML5Backend)
 class ProgramDesign extends React.Component {
+  submit() {
+    // TODO
+  }
   constructor(props) {
     super(props)
     props.submitHook(this.submit.bind(this))
@@ -36,14 +36,14 @@ class ProgramDesign extends React.Component {
     }
 
     return (
-      <div className="stage-program stage-programview container-fluid">
+      <div className="stage-program stage-programdesign container-fluid">
         <div className="stage-program-title">
           {this.props.current.title}
           {compareBtn}
         </div>
         <div className="row">
           <div className={"stage-program-main " + (this.props.sidebarShown ? "col-8" : "col-12")}>
-            <Program details="true" editable="false" program={this.props.programs[this.props.current.program]} courses={this.props.courses} />
+            <Program details="true" editable="true" program={this.props.program} courses={this.props.courses} />
           </div>
           <Sidebar />
         </div>
@@ -60,4 +60,26 @@ class ProgramDesign extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    current: state.stage.current,
+    program: state.stage.editor,
+    courses: state.stage.courses,
+    programs: state.stage.programs,
+    sidebarShown: state.sidebar.open,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setCompareProgram: (program) => dispatch(sidebarProgramChanged(program)),
+  }
+}
+
+const Cont = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ProgramDesign)
+
+export default Cont
 

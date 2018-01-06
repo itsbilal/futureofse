@@ -1,14 +1,18 @@
 
 import React from 'react'
 import {connect} from 'react-redux'
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 import IdentStageView from './ident'
 import QuestionsStageView from './questions'
 import FinalStageView from './final'
 import ProgramView from './programview'
+import ProgramDesign from './programdesign'
 
 import { nextStage } from 'actions/stage'
 
+@DragDropContext(HTML5Backend)
 class StageView extends React.Component {
   onNext(e) {
     if (this.props.numStages - 1 == this.props.currentStage) {
@@ -40,8 +44,12 @@ class StageView extends React.Component {
         break
       case 'programview':
         stage = <ProgramView submitHook={this.submitHook.bind(this)} comments='true' />
+        break
+      case 'programdesign':
+        stage = <ProgramDesign submitHook={this.submitHook.bind(this)} comments='true' />
+        break
       default:
-        console.log(`error: got ${this.props.current.ident} as stage type`)
+        console.log(`error: got ${this.props.current.type} as stage type`)
     }
 
     return <div className="container stage">
