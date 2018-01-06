@@ -7,7 +7,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import IdentStageView from './ident'
 import QuestionsStageView from './questions'
 import FinalStageView from './final'
-import ProgramView from './programview'
+import { ProgramViewBound } from './programview'
 import ProgramDesign from './programdesign'
 
 import { nextStage } from 'actions/stage'
@@ -43,7 +43,7 @@ class StageView extends React.Component {
         stage = <QuestionsStageView submitHook={this.submitHook.bind(this)} />
         break
       case 'programview':
-        stage = <ProgramView submitHook={this.submitHook.bind(this)} comments='true' />
+        stage = <ProgramViewBound submitHook={this.submitHook.bind(this)} comments='true' />
         break
       case 'programdesign':
         stage = <ProgramDesign submitHook={this.submitHook.bind(this)} comments='true' />

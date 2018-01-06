@@ -2,61 +2,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Program from './program'
-import Sidebar from './sidebar'
+import { ProgramView } from './programview'
 
 import { sidebarProgramChanged } from 'actions/sidebar'
 
-class ProgramDesign extends React.Component {
+class ProgramDesign extends ProgramView {
   submit() {
     // TODO
   }
-  constructor(props) {
-    super(props)
-    props.submitHook(this.submit.bind(this))
-    this.state = {
-      comment: "",
-    }
+  isEditable() {
+    return 'true'
   }
-  onCommentChange(e) {
-    this.setState({
-      comment: e.target.value,
-    })
+  getProgram() {
+    return this.props.program
   }
-  compare() {
-    this.props.setCompareProgram(this.props.programs[this.props.current.compare])
-  }
-  render() {
-    let compareBtn = null
-
-    if (this.props.current.compare) {
-      compareBtn = (<button type="button" onClick={this.compare.bind(this)} className="btn btn-link">
-          Compare to current curriculum
-        </button>)
-    }
-
-    return (
-      <div className="stage-program stage-programdesign container-fluid">
-        <div className="stage-program-title">
-          {this.props.current.title}
-          {compareBtn}
-        </div>
-        <div className="row">
-          <div className={"stage-program-main " + (this.props.sidebarShown ? "col-8" : "col-12")}>
-            <Program details="true" editable="true" program={this.props.program} courses={this.props.courses} />
-          </div>
-          <Sidebar />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="programview-comment1">
-            {this.props.current.commentbox}
-          </label>
-          <textarea className="form-control" value={this.state.comment} id="programview-comment1" onChange={this.onCommentChange.bind(this)}>
-          </textarea>
-        </div>
-      </div>
-    )
+  getDivClass() {
+    return 'stage-programdesign'
   }
 }
 

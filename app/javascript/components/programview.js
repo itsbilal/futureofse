@@ -49,6 +49,15 @@ class ProgramView extends React.Component {
   compare() {
     this.props.setCompareProgram(this.props.programs[this.props.current.compare])
   }
+  isEditable() {
+    return 'false'
+  }
+  getProgram() {
+    return this.props.programs[this.props.current.program]
+  }
+  getDivClass() {
+    return 'stage-programview'
+  }
   render() {
     let compareBtn = null
 
@@ -59,14 +68,14 @@ class ProgramView extends React.Component {
     }
 
     return (
-      <div className="stage-program stage-programview container-fluid">
+      <div className={`stage-program ${this.getDivClass()} container-fluid`}>
         <div className="stage-program-title">
           {this.props.current.title}
           {compareBtn}
         </div>
         <div className="row">
           <div className={"stage-program-main " + (this.props.sidebarShown ? "col-8" : "col-12")}>
-            <Program details="true" editable="false" program={this.props.programs[this.props.current.program]} courses={this.props.courses} />
+            <Program details="true" editable={this.isEditable()} program={this.getProgram()} courses={this.props.courses} />
           </div>
           <Sidebar />
         </div>
@@ -100,9 +109,12 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const Cont = connect(
+const ProgramViewBound = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(ProgramView)
 
-export default Cont
+export {
+  ProgramView,
+  ProgramViewBound,
+}
