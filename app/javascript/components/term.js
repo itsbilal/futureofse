@@ -35,7 +35,7 @@ class Term extends React.Component {
     let dropHint = null
 
     if (this.props.canDrop) {
-      dropHint = (<div className="course course-drophint">
+      dropHint = (<div className={`course course-drophint ${this.props.isOver ? 'course-drophint-active' : ''}`}>
         </div>)
     }
 

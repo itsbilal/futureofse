@@ -39,6 +39,9 @@
       .course.course-drophint {
         border: 4px dashed #ddd
       }
+      .course.course-drophint-active {
+        border-color: #ff0000;
+      }
     }
   }
 }
