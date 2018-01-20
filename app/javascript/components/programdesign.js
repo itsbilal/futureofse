@@ -10,10 +10,12 @@ class ProgramDesign extends ProgramView {
   submit() {
     // TODO: Some validation
     let stage = this.props.program
+    let comment = this.state.comment
 
     let requestBody = {
       voterKey: this.props.voterKey,
       stage,
+      comment,
     }
 
     return fetch(`/api/stage/${this.props.currentStage}`, {

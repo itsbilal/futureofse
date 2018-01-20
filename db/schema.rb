@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102004907) do
+ActiveRecord::Schema.define(version: 20180107163213) do
+
+  create_table "program_designs", force: :cascade do |t|
+    t.integer "stage_response_id"
+    t.string "term"
+    t.string "course"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stage_response_id"], name: "index_program_designs_on_stage_response_id"
+  end
 
   create_table "program_views", force: :cascade do |t|
     t.integer "stage_response_id"
