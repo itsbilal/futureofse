@@ -73,6 +73,18 @@ class StageController < ApplicationController
         pv.comment = params[:stage][:comment]
 
         pv.save
+      elsif s.stagetype = 'programdesign'
+        params[:stage][:terms].each do |term|
+          params[:stage][term].each do |course|
+            pd = ProgramDesign.new
+            pd.stage_response_id = s.id
+            pd.term = term
+            pd.course = course[:course]
+            pd.comment = course[:comment]
+
+            pd.save
+          end
+        end
       end
 
       render json: {:success => true}

@@ -3,4 +3,5 @@ class StageResponse < ApplicationRecord
 
   has_many :questions
   has_many :program_views
+  has_many :program_designs
 end

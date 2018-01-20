@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stage_response_id: 1
+  term: MyString
+  course: MyString
+  comment: MyString
+
+two:
+  stage_response_id: 1
+  term: MyString
+  course: MyString
+  comment: MyString

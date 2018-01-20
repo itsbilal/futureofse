@@ -8,7 +8,31 @@ import { sidebarProgramChanged } from 'actions/sidebar'
 
 class ProgramDesign extends ProgramView {
   submit() {
-    // TODO
+    // TODO: Some validation
+    let stage = this.props.program
+
+    let requestBody = {
+      voterKey: this.props.voterKey,
+      stage,
+    }
+
+    return fetch(`/api/stage/${this.props.currentStage}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      if (data.success) {
+        // reset state
+        this.setState({
+          comment: "",
+        })
+      }
+      return Promise.resolve(data)
+    })
   }
   isEditable() {
     return 'true'
@@ -23,7 +47,9 @@ class ProgramDesign extends ProgramView {
 
 const mapStateToProps = (state) => {
   return {
+    voterKey: state.voter.key,
     current: state.stage.current,
+    currentStage: state.stage.num,
     program: state.stage.editor,
     courses: state.stage.courses,
     programs: state.stage.programs,
