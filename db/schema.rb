@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180107163213) do
+ActiveRecord::Schema.define(version: 20180121053845) do
+
+  create_table "program_design_courses", force: :cascade do |t|
+    t.integer "program_design_id"
+    t.string "term"
+    t.string "course"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["program_design_id"], name: "index_program_design_courses_on_program_design_id"
+  end
 
   create_table "program_designs", force: :cascade do |t|
     t.integer "stage_response_id"
-    t.string "term"
-    t.string "course"
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

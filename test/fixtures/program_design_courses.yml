@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  program_design_id: 1
+  term: MyString
+  course: MyString
+
+two:
+  program_design_id: 1
+  term: MyString
+  course: MyString

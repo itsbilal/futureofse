@@ -74,16 +74,19 @@ class StageController < ApplicationController
 
         pv.save
       elsif s.stagetype = 'programdesign'
+        pd = ProgramDesign.new
+        pd.stage_response_id = s.id
+        pd.comment = params[:comment]
+        pd.save!
+
         params[:stage][:terms].each do |term|
           params[:stage][term][:courses].each do |course|
-            pd = ProgramDesign.new
-            pd.stage_response_id = s.id
-            pd.term = term
-            pd.course = course
-            #pd.course = course[:course]
-            pd.comment = params[:comment]
+            pdc = ProgramDesignCourse.new
+            pdc.program_design_id = pd.id
+            pdc.term = term
+            pdc.course = course
 
-            pd.save
+            pdc.save
           end
         end
       end
