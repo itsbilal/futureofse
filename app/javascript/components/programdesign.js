@@ -9,7 +9,13 @@ import { sidebarProgramChanged } from 'actions/sidebar'
 
 class ProgramDesign extends ProgramView {
   submit() {
-    // TODO: Some validation
+    if (this.validatePrereq() !== true ||
+      this.validateEnoughCourses() !== true ||
+      this.validateDegreeReqs() !== true) {
+      alert("Your program is not well formed; take a look at the Summary to see what's wrong.")
+      return
+    }
+
     let stage = this.props.program
     let comment = this.state.comment
 
