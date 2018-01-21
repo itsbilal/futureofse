@@ -55,11 +55,11 @@ class IdentStageView extends React.Component {
       return (<div>
         <div className="form-group">
           <label htmlFor="inputName">Name</label>
-          <input type="text" className="form-control" id="inputName" placeholder="Alice Bob" />
+          <input type="text" ref={(name) => {this.name = name}} className="form-control" id="inputName" placeholder="Alice Bob" />
         </div>
         <div className="form-group">
           <label htmlFor="inputEmail">Email address</label>
-          <input type="email" className="form-control" id="inputEmail" placeholder="a29bob@uwaterloo.ca" />
+          <input type="email" ref={(email) => {this.email = email}} className="form-control" id="inputEmail" placeholder="a29bob@uwaterloo.ca" />
         </div>
       </div>
       )

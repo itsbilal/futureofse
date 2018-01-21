@@ -51,7 +51,7 @@ class Term extends React.Component {
               ))}
               {dropHint}
               {(this.props.term.nces || []).map((nce) => (
-                <div key={`nce-${nce}`} className="course course-nce">
+                <div key={`nce-${nce}`} className={"course course-nce" + (nce == "WKRPT" ? " course-wkrpt" : "")}>
                   {nce}
                 </div>
               ))}

@@ -14,7 +14,7 @@ class Sidebar extends React.Component {
 
     if (this.props.display == "course" && this.props.course) {
       let flowPart = (<div>
-            <a href={`https://uwflow.com/course/${flowify(this.props.course.course)}`}>View on UWFlow</a>
+            <a target="_blank" href={`https://uwflow.com/course/${flowify(this.props.course.course)}`}>View on UWFlow</a>
           </div>)
 
       sidebarContent = (<div className="sidebar-content">
