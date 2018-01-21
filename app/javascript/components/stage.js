@@ -1,4 +1,3 @@
-
 import React from 'react'
 import {connect} from 'react-redux'
 import { DragDropContext } from 'react-dnd';
@@ -52,9 +51,11 @@ class StageView extends React.Component {
         console.log(`error: got ${this.props.current.type} as stage type`)
     }
 
-    return <div className="container stage">
+    return <div className="stage">
       { stage }
-      <button type="button" className="btn btn-primary" onClick={this.onNext.bind(this)}>Next</button>
+      <div className="container controls">
+        <button type="button" className="btn btn-primary" onClick={this.onNext.bind(this)}>Next</button>
+      </div>
     </div>
   }
 }

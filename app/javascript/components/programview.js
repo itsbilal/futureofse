@@ -68,24 +68,28 @@ class ProgramView extends React.Component {
     }
 
     return (
-      <div className={`stage-program ${this.getDivClass()} container-fluid`}>
-        <div className="stage-program-title">
-          {this.props.current.title}
-          {compareBtn}
+      <div className={`stage-program ${this.getDivClass()}`}>
+        <div className="container">
+          <div className="stage-program-title">
+            {this.props.current.title}
+            {compareBtn}
+          </div>
         </div>
-        <div className="row">
-          <div className={"stage-program-main " + (this.props.sidebarShown ? "col-8" : "col-12")}>
+        <div className="sidebar-container">
+          <div className="stage-program-main">
             <Program details="true" editable={this.isEditable()} program={this.getProgram()} courses={this.props.courses} />
           </div>
           <Sidebar />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="programview-comment1">
-            {this.props.current.commentbox}
-          </label>
-          <textarea className="form-control" value={this.state.comment} id="programview-comment1" onChange={this.onCommentChange.bind(this)}>
-          </textarea>
+        <div className="container">
+          <div className="form-group">
+            <label htmlFor="programview-comment1">
+              {this.props.current.commentbox}
+            </label>
+            <textarea className="form-control" value={this.state.comment} id="programview-comment1" onChange={this.onCommentChange.bind(this)}>
+            </textarea>
+          </div>
         </div>
       </div>
     )

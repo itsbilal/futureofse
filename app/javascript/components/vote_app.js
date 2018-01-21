@@ -20,7 +20,7 @@ fetch('/api/stage')
 
 const VoteApp = (props) => {
   return <Provider store={store}>
-    <div className="container">
+    <div>
       <NavBar />
       <StageView />
     </div>
