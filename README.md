@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Tested on Ruby 2.4.2 and Rails 5.1.4 on MacOS High Sierra, but any standard installation of Ruby and Rails should work.
 
-Things you may want to cover:
+First, install Ruby, Rails, NodeJS and Yarn to your machine using your favourite package managers / installation methods.
 
-* Ruby version
+Then:
 
-* System dependencies
+```
+bundle --path=vendor/bundle install
+yarn install
+bin/rails db:migrate # if this doesn't work, bin/rails db:reset
+bin/webpack
+bin/rails s
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Open localhost:3000 in a browser.
