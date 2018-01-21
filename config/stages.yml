@@ -170,7 +170,6 @@ courses:
     title: Software Engineering Principles
     desc: "Systematic methods for designing, coding, testing, and documenting medium-sized programs. Major topics include abstraction, modularity, software modeling, object-oriented programming and design, generic programming, testing and debugging."
     prereqs:
-      - CS 241
   MATH 239:
     title: Intro to Combinatorics
     desc: "Introduction to graph theory: colourings, matchings, connectivity, planarity. Introduction to combinatorial analysis: generating series, recurrence relations, binary strings, plane trees."

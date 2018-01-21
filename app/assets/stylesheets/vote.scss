@@ -57,6 +57,11 @@ nav {
 
 }
 
+.summary-card {
+  margin: 10px;
+  padding: 5px;
+}
+
 .term {
   width: 330px;
   display:inline-block;
@@ -65,9 +70,7 @@ nav {
   margin: 10px;
 
   &.term-extras {
-    width: 660px;
-    .course {
-    }
+    width: 100%;
   }
 
   .courses-list {
