@@ -2,19 +2,45 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+nav {
+  margin-bottom: 20px;
+}
+
+.controls {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: right;
+
+  .btn {
+    padding: .375rem 2rem;
+  }
+}
+
+.sidebar-container {
+  display: flex;
+}
+
 .stage-program{
   .stage-program-title {
     margin: 20px 0px;
     font-size: 14pt;
   }
   .stage-program-main {
+    flex: 1 1 auto;
+    max-width: 100%;
+    min-width: 0;
     padding-left: 0px;
     padding-right: 0px;
   }
 }
 
 .program {
-  overflow-x: scroll;
+  &.program-scroll {
+    white-space: nowrap !important;
+    overflow-x: scroll;
+  }
+
+  padding: 0 20px;
 
   .term {
     width: 330px;
@@ -31,6 +57,20 @@
         padding: 10px;
         text-overflow: ellipsis;
         overflow: hidden;
+
+        &.course-nce {
+          font-style: italic;
+
+          &.course-wkrpt:before {
+            content: '🏳';
+          }
+
+          &:before {
+            font-style: normal;
+            content: '🏁';
+            margin-right: 10px;
+          }
+        }
         
         .btn-link {
           cursor: pointer;
@@ -47,20 +87,32 @@
 }
 
 .sidebar {
-  background: #eee;
-  border-left: 1px solid #ccc;
+  flex: 0;
+  overflow: hidden;
+  box-sizing: content-box;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  width: 0;
+  transition: all ease 0.3s;
+
   .btn {
     margin-top: 10px;
   }
   .sidebar-content {
+    width: 300px;
     margin-top: 20px;
   }
 }
 
 .sidebar-open {
-  display: block;
+  min-width: 300px;
+  padding: 0 20px;
+  margin-left: 20px;
+  border-left: 1px solid #EEE;
 }
 
 .sidebar-closed {
-  display: none;
+  min-width: 0;
 }

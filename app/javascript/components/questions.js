@@ -30,7 +30,7 @@ class QuestionsStageView extends React.Component {
 
   }
   render() {
-    return (<div className="questions-stage">
+    return (<div className="container questions-stage">
         { this.props.current.questions.map((question, idx) => (
           <div key={idx} className="form-group">
             <label className="col-form-label">

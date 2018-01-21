@@ -39,8 +39,9 @@ class Sidebar extends React.Component {
         </div>)
     }
 
+    // col-4 
     return (
-      <div className={"col-4 sidebar " + (this.props.open ? "sidebar-open" : "sidebar-closed")}>
+      <div className={"sidebar " + (this.props.open ? "sidebar-open" : "sidebar-closed")}>
         <button onClick={this.props.toggle.bind(this)} type="button" className="btn btn-outline-primary">
           Close sidebar
         </button><br />

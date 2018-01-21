@@ -1,4 +1,3 @@
-
 import React from 'react'
 import {connect} from 'react-redux'
 
@@ -69,7 +68,7 @@ class IdentStageView extends React.Component {
     }
   }
   render() {
-    return <div className="ident">
+    return <div className="container container-fluid ident">
       <p>
         {this.props.current.message}
       </p>
