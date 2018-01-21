@@ -107,7 +107,12 @@ nav {
       }
     }
     .course.course-drophint {
-      border: 4px dashed #ddd
+      border: 4px dashed #ddd;
+      visibility: hidden;
+
+      &.course-drophint-visible {
+        visibility: visible;
+      }
     }
     .course.course-drophint-active {
       border-color: #007bff;

@@ -33,12 +33,8 @@ class Term extends React.Component {
     let courses = this.props.term.courses.map((course) => (
       Object.assign({}, {course}, this.props.courses[course])))
 
-    let dropHint = null
-
-    if (this.props.canDrop) {
-      dropHint = (<div className={`course course-drophint ${this.props.isOver ? 'course-drophint-active' : ''}`}>
+    let dropHint = (<div className={`course course-drophint ${this.props.canDrop ? 'course-drophint-visible' : ''} ${this.props.isOver ? 'course-drophint-active' : ''}`}>
         </div>)
-    }
 
     return this.props.connectDropTarget(
       <div className={"term" + (this.props.isExtras ? " term-extras" : "")}>
