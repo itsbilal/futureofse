@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import { DragSource } from 'react-dnd';
 
 import { sidebarCourseChanged } from 'actions/sidebar'
+import { editorCourseMoved } from 'actions/editor'
 
 const dragSpec = {
   beginDrag(props) {
@@ -30,6 +31,11 @@ class Course extends React.Component {
     return this.props.connectDragSource(
       <div className="course course-course">
         <span>{this.props.course.course}</span>
+        { (this.props.course.droppable && (this.props.term != 'extras') && (this.props.editable == 'true')) ? (
+          <button className="btn btn-link text-danger" type="button" onClick={this.props.courseDropped.bind(this, this.props.course, this.props.term)}>
+            Drop
+          </button>
+        ) : null }
         <button className="btn btn-link" type="button" onClick={this.props.courseClicked.bind(this, this.props.course)}>
           Details
         </button>
@@ -45,6 +51,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     courseClicked: (course) => dispatch(sidebarCourseChanged(course)),
+    courseDropped: (course, term) => dispatch(editorCourseMoved(course.course, term, 'extras')),
   }
 }
 

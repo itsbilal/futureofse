@@ -36,6 +36,10 @@ function reducer(state = initialState, action) {
     case 'EDITOR_COURSE_MOVED':
       var editor = Object.assign({}, state.editor)
       let {from, to, course} = action
+      editor[from] = Object.assign({}, editor[from])
+      editor[from].courses = editor[from].courses.slice()
+      editor[to] = Object.assign({}, editor[to])
+      editor[to].courses = editor[to].courses.slice()
 
       if (typeof course != "string") {
         course = course.course
