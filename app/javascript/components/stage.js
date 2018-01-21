@@ -53,9 +53,9 @@ class StageView extends React.Component {
 
     return <div className="stage">
       { stage }
-      <div className="container controls">
+      { (this.props.current.type != 'final') ? (<div className="container controls">
         <button type="button" className="btn btn-primary" onClick={this.onNext.bind(this)}>Next</button>
-      </div>
+      </div>) : null}
     </div>
   }
 }
