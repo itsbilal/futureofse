@@ -9,7 +9,8 @@ import { editorCourseMoved } from 'actions/editor'
 
 const dropSpec = {
   canDrop(props, monitor) {
-    return props.editable === true || props.editable === 'true'
+    let isExtras = (!props.isExtras || monitor.getItem().droppable)
+    return (props.editable === true || props.editable === 'true') && isExtras
   },
   drop(props, monitor) {
     let item = monitor.getItem()
@@ -40,10 +41,10 @@ class Term extends React.Component {
     }
 
     return this.props.connectDropTarget(
-      <div className="term">
+      <div className={"term" + (this.props.isExtras ? " term-extras" : "")}>
         <div className="card">
           <div className="card-body">
-            <h5 className="card-title">{this.props.name}</h5>
+            <h5 className="card-title">{this.props.title ? this.props.title : this.props.name}</h5>
             <div className="courses-list">
               {courses.map((course) => (
                 <Course key={course.course} course={course} term={this.props.name} editable={this.props.editable} />

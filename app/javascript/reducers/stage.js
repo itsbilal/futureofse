@@ -25,7 +25,7 @@ function reducer(state = initialState, action) {
       var editor = {}
 
       if (current.type == 'programdesign') {
-        editor = Object.assign({}, state.programs[current.program], {none: current.extras || []})
+        editor = Object.assign({}, state.programs[current.program], {extras: { courses: current.extras || [] }})
       }
 
       return Object.assign({}, state, {

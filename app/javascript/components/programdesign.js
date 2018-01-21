@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { ProgramView } from './programview'
+import Term from './term'
 
 import { sidebarProgramChanged } from 'actions/sidebar'
 
@@ -44,6 +45,17 @@ class ProgramDesign extends ProgramView {
   }
   getDivClass() {
     return 'stage-programdesign'
+  }
+  getExtras() {
+    return (
+      <Term
+        courses={this.props.courses}
+        editable="true"
+        term={this.props.program.extras}
+        name="extras"
+        title="Extras / Dropped courses"
+        isExtras="true" />
+    )
   }
 }
 

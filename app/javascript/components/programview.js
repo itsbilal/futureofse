@@ -58,6 +58,9 @@ class ProgramView extends React.Component {
   getDivClass() {
     return 'stage-programview'
   }
+  getExtras() {
+    return null
+  }
   render() {
     let compareBtn = null
 
@@ -83,6 +86,7 @@ class ProgramView extends React.Component {
         </div>
 
         <div className="container">
+          { this.getExtras() }
           <div className="form-group">
             <label htmlFor="programview-comment1">
               {this.props.current.commentbox}
