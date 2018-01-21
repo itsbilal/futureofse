@@ -42,46 +42,53 @@ nav {
 
   padding: 0 20px;
 
-  .term {
-    width: 330px;
-    display:inline-block;
+}
 
-    margin: 10px;
-    .courses-list {
-      padding: 5px;
+.term {
+  width: 330px;
+  display:inline-block;
 
-      .course {
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin-bottom: 5px;
-        padding: 10px;
-        text-overflow: ellipsis;
-        overflow: hidden;
+  margin: 10px;
 
-        &.course-nce {
-          font-style: italic;
+  &.term-extras {
+    width: 660px;
+    .course {
+    }
+  }
+  .courses-list {
+    padding: 5px;
 
-          &.course-wkrpt:before {
-            content: '🏳';
-          }
+    .course {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      padding: 10px;
+      text-overflow: ellipsis;
+      overflow: hidden;
 
-          &:before {
-            font-style: normal;
-            content: '🏁';
-            margin-right: 10px;
-          }
+      &.course-nce {
+        font-style: italic;
+
+        &.course-wkrpt:before {
+          content: '🏳';
         }
-        
-        .btn-link {
-          cursor: pointer;
+
+        &:before {
+          font-style: normal;
+          content: '🏁';
+          margin-right: 10px;
         }
       }
-      .course.course-drophint {
-        border: 4px dashed #ddd
+      
+      .btn-link {
+        cursor: pointer;
       }
-      .course.course-drophint-active {
-        border-color: #ff0000;
-      }
+    }
+    .course.course-drophint {
+      border: 4px dashed #ddd
+    }
+    .course.course-drophint-active {
+      border-color: #ff0000;
     }
   }
 }

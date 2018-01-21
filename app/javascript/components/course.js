@@ -10,7 +10,6 @@ const dragSpec = {
     return {
       course: props.course,
       currentTerm: props.term,
-      droppable: props.course.droppable,
     }
   },
   canDrag(props, monitor) {
