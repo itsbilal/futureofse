@@ -29,8 +29,8 @@ class Course extends React.Component {
   render() {
     return this.props.connectDragSource(
       <div className="course course-course">
-        {this.props.course.course}
-        <button className="btn btn-link float-right" type="button" onClick={this.props.courseClicked.bind(this, this.props.course)}>
+        <span>{this.props.course.course}</span>
+        <button className="btn btn-link" type="button" onClick={this.props.courseClicked.bind(this, this.props.course)}>
           Details
         </button>
       </div>

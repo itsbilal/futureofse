@@ -46,8 +46,8 @@ class ProgramView extends React.Component {
       comment: e.target.value,
     })
   }
-  compare() {
-    this.props.setCompareProgram(this.props.programs[this.props.current.compare])
+  toggleCompare() {
+    this.setState({ compare: !this.state.compare });
   }
   isEditable() {
     return 'false'
@@ -55,19 +55,40 @@ class ProgramView extends React.Component {
   getProgram() {
     return this.props.programs[this.props.current.program]
   }
+  getCompareProgram() {
+    return this.props.programs[this.props.current.compare]
+  }
   getDivClass() {
     return 'stage-programview'
   }
   getExtras() {
     return null
   }
+  program() {
+    return (
+      <div className="stage-program-main">
+        <Program details="true" editable={this.isEditable()} program={this.getProgram()} courses={this.props.courses} />
+      </div>
+    );
+  }
+  programDiff() {
+    return (
+      <div className="stage-program-main">
+        <Program details="true" editable={this.isEditable()} program={this.getProgram()} courses={this.props.courses} diff={this.getCompareProgram()} />
+      </div>
+    );
+  }
   render() {
     let compareBtn = null
 
     if (this.props.current.compare) {
-      compareBtn = (<button type="button" onClick={this.compare.bind(this)} className="btn btn-link">
-          Compare to current curriculum
-        </button>)
+      const compareText = this.state.compare ?
+        "Stop comparing" : "Compare to current curriculum";
+      compareBtn = (
+        <button type="button" onClick={this.toggleCompare.bind(this)} className="btn btn-link">
+          {compareText}
+        </button>
+      );
     }
 
     return (
@@ -79,9 +100,7 @@ class ProgramView extends React.Component {
           </div>
         </div>
         <div className="sidebar-container">
-          <div className="stage-program-main">
-            <Program details="true" editable={this.isEditable()} program={this.getProgram()} courses={this.props.courses} />
-          </div>
+          { this.state.compare ? this.programDiff() : this.program() }
           <Sidebar />
         </div>
 

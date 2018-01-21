@@ -17,7 +17,7 @@ class Sidebar extends React.Component {
             <a target="_blank" href={`https://uwflow.com/course/${flowify(this.props.course.course)}`}>View on UWFlow</a>
           </div>)
 
-      sidebarContent = (<div className="sidebar-content">
+      sidebarContent = (<div>
           <h4>{this.props.course.course}</h4>
           <h5>{this.props.course.title}</h5>
           <p>{this.props.course.desc}</p>
@@ -42,10 +42,14 @@ class Sidebar extends React.Component {
     // col-4 
     return (
       <div className={"sidebar " + (this.props.open ? "sidebar-open" : "sidebar-closed")}>
-        <button onClick={this.props.toggle.bind(this)} type="button" className="btn btn-outline-primary">
-          Close sidebar
-        </button><br />
-        { sidebarContent }
+        <div className="sidebar-content-mask">
+          <div className="sidebar-content">
+            <button onClick={this.props.toggle.bind(this)} type="button" className="btn btn-outline-primary">
+              Close sidebar
+            </button><br />
+            { sidebarContent }
+          </div>
+        </div>
       </div>
     )
   }

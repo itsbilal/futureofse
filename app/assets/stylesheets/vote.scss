@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html {
+  // Hidden overflow has to be on html and not an element so
+  // that html is still used as the reference for position:sticky elements
+  overflow-x: hidden;
+}
+
 nav {
   margin-bottom: 20px;
 }
@@ -35,9 +41,16 @@ nav {
 }
 
 .program {
+  justify-content: center;
   &.program-scroll {
+    text-align: center;
     white-space: nowrap !important;
     overflow-x: scroll;
+  }
+
+  .row {
+    justify-content: center;
+    align-items: stretch;
   }
 
   padding: 0 20px;
@@ -47,6 +60,7 @@ nav {
 .term {
   width: 330px;
   display:inline-block;
+  text-align: left;
 
   margin: 10px;
 
@@ -55,6 +69,7 @@ nav {
     .course {
     }
   }
+
   .courses-list {
     padding: 5px;
 
@@ -63,8 +78,9 @@ nav {
       border-radius: 5px;
       margin-bottom: 5px;
       padding: 10px;
-      text-overflow: ellipsis;
+      display: flex;
       overflow: hidden;
+      align-items: center;
 
       &.course-nce {
         font-style: italic;
@@ -79,23 +95,28 @@ nav {
           margin-right: 10px;
         }
       }
+
+      span {
+        text-overflow: ellipsis;
+        flex: 1;
+      }
       
       .btn-link {
         cursor: pointer;
+        padding: 0 0 0 10px;
       }
     }
     .course.course-drophint {
       border: 4px dashed #ddd
     }
     .course.course-drophint-active {
-      border-color: #ff0000;
+      border-color: #007bff;
     }
   }
 }
 
 .sidebar {
   flex: 0;
-  overflow: hidden;
   box-sizing: content-box;
   padding: 0;
   margin-top: 10px;
@@ -107,19 +128,30 @@ nav {
   .btn {
     margin-top: 10px;
   }
-  .sidebar-content {
-    width: 300px;
-    margin-top: 20px;
+  .sidebar-content-mask {
+    overflow: hidden;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: 100%;
+
+    .sidebar-content {
+      width: 300px;
+
+      .btn {
+        margin-bottom: 20px;
+      }
+    }
   }
-}
 
-.sidebar-open {
-  min-width: 300px;
-  padding: 0 20px;
-  margin-left: 20px;
-  border-left: 1px solid #EEE;
-}
+  &.sidebar-open {
+    min-width: 300px;
+    padding: 0 20px;
+    margin-left: 20px;
+    border-left: 1px solid #EEE;
+  }
 
-.sidebar-closed {
-  min-width: 0;
+  &.sidebar-closed {
+    min-width: 0;
+  }
 }
