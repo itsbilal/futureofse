@@ -1,7 +1,7 @@
 stages:
   -
     type: ident
-    message: Lorem ipsum dolor sit amet
+    message: Thanks for filling out this questionnaire about the Software Engineering program. Your input will help the Curriculum Committee improve the program for future students.
     classes:
       - 2014
       - 2015
@@ -12,11 +12,14 @@ stages:
       - 2020
       - 2021
       - 2022
+      - SE Curriculum Committee
+      - other
   -
     type: questions
     questions:
-      - "What did you have for breakfast today?"
-      - "Is 2017 real?"
+      - "What do you think about an overall goal of getting SE closer to 5 courses per term?"
+      - "Should we strive for more flexibility in the program?"
+      - "What are your feelings about adding an extra half-course (workload similar to SE 101) to 1B?"
   -
     type: programview
     program: current
@@ -26,7 +29,7 @@ stages:
     type: programview
     program: proposed
     compare: current
-    title: This is a proposed program calendar that the curriculum committee is considering.
+    title: "This is a proposed course sequence that the curriculum committee is considering. Brief summary: 1B gets an extra half-course SE 192 (could have SQL); 2B gets a new DB course (maybe SE 192 is enough?) and loses MSCI 261 and MATH 213; 3A gains MATH 213; 3B loses CS 348 and gains ECE 358; 4A loses ECE 358 and gains an elective; one fewer elective in 4B. On the next page, you'll get a chance to move courses around."
     commentbox: "Any general thoughts/comments about this program structure?"
   -
     type: programdesign
@@ -35,8 +38,8 @@ stages:
     extras:
       - Elective
       - Elective
-      - ECE 192
-    title: On this page, you get to design your own SE program. What course sequence do you think would lead to the best program?
+      - SE 192
+    title: "On this page, you get to design your own SE program. Look below: there are some extras below in 'Extras/Dropped courses' that you can replace existing courses with, and the summary tells you if you've broken prerequisite chains. What course sequence do you think would lead to the best program?"
     commentbox: "Any other general comments?"
   -
     type: final
@@ -48,7 +51,7 @@ stages:
       curriculum:
         -
           name: Bilal Akhtar
-          type: Student rep
+          type: F17 Student rep
           email: mbakhtar@uwaterloo.ca
         -
           name: Patrick Lam
@@ -56,8 +59,16 @@ stages:
           email: se-director@uwaterloo.ca
         -
           name: Jason Milasincic
-          type: Student rep
+          type: F17 Student rep
           email: jmilasin@uwaterloo.ca
+        -
+          name: Emma Thomson
+          type: W18 Student rep
+          email: e5thomso@uwaterloo.ca
+        -
+          name: Jasper Chapman-Black
+          type: W18 Student rep
+          email: jasperchapmanblack@gmail.com
       classreps:
         2019:
           -
@@ -152,12 +163,12 @@ courses:
     dropMessage: We wish it were that easy. Patrick is trying his best to lobby CEAB into relaxing this requirement for SE, but no guarantees if that will work. Remember, for the purpose of this course designer view, you're pretending to be the SE director, not a dictator of Canada.
   COMM Elective:
     title: Communications elective
-    desc: See SE calendar for list of communications courses
+    desc: SPCOM 100 (Interpersonal Communication)/SPCOM 223 (Public Speaking)/ENGL 109 (Academic Writing)/ESL
     elective: true
     movable: false
   Elective:
     title: Generic elective slot
-    desc: See SE calendar for list of electives
+    desc: 11 electives total (2 science, 3 linkage, 3 ATE, 3 open)
     elective: true
     droppable: true
   CS 240:
@@ -176,7 +187,7 @@ courses:
     prereqs:
       - MATH 135
   MATH 213:
-    title: Signals and systems
+    title: Signals and systems and Differential Equations
     desc: "Fourier series. Differential equations. Laplace transforms. Applications to circuit analysis."
     prereqs:
       - MATH 119
@@ -184,12 +195,78 @@ courses:
     title: "Engineering Economics: Financial Management for Engineers"
     desc: "Introductory Finance: time value of money, cash flow analysis. Investment evaluation methods: present worth, annual worth and internal rate of return. Depreciation models and asset replacement analysis. The impact of inflation, taxation, uncertainty and risk on investment decisions."
     droppable: true
-  ECE 192:
-    title: Engineering Economics and social impact
-    desc: "A future ECE half-course that will cover just enough engineering economics to meet accreditation, plus have some additional lectures on social impact. Note that moving to this course does not eliminate the list A impact course requirement for SE."
+  SE 192:
+    title: Engineering Economics and Social impact
+    desc: "A future ECE half-course that will cover just enough engineering economics to meet accreditation, plus have some additional lectures on social impact. Note that moving to this course does not eliminate the list A impact course requirement for SE. We could also consider putting some basic SQL in an SE version of this course."
     weight: 0.5
     replaces: MSCI 261
     droppable: true
+  CS 341:
+    title: Algorithms
+    desc: "The study of efficient algorithms and effective algorithm design techniques. Program design with emphasis on pragmatic and mathematical aspects of program efficiency. Topics include divide and conquer algorithms, recurrences, greedy algorithms, dynamic programming, graph search and backtrack, problems without algorithms, NP-completeness and its implications."
+    prereqs:
+      - CS 240
+  CS 343:
+    title: Concurrent and Parallel Programming
+    desc: "An introduction to concurrent and parallel programming, with an emphasis on language constructs. Major topics include: exceptions, coroutines, atomic operations, critical sections, mutual exclusion, semaphores, high-level concurrency, deadlock, interprocess communication, process structuring, shared memory and distributed architectures. Students will learn how to structure, implement and debug concurrent programs."
+    droppable: true
+  CS 348:
+    title: Introduction to Database Management
+    desc: "The main objective of this course is to introduce students to fundamentals of database technology by studying databases from three viewpoints: those of the database user, the database designer, and the database administrator. It teaches the use of a database management system (DBMS) by treating it as a black box, focusing only on its functionality and its interfaces. Topics include: introduction to database systems, relational database systems, database design methodology, SQL and interfaces, database application development, concept of transactions, ODBC, JDBC, database tuning, database Administration, and current topics (distributed databases, data warehouses, data mining)."
+    droppable: true
+  CS 349:
+    title: User Interfaces
+    desc: "An introduction to contemporary user interfaces, including the basics of human-computer interaction, the user interface design/evaluation process, the event abstraction, user interface components, specification of user interfaces, and the architectures within which user interfaces are developed. Implementation and evaluation of a typical user interface is considered."
+  ECE 358:
+    title: Computer Networks
+    desc: "This course is a comprehensive introduction to computer networks. The focus is on the concepts, the protocols, and the fundamental design principles that have contributed to the success of the Internet. Topics include: history of the Internet, transmission media and technologies, switching and multiplexing, protocols and layering, wired and wireless LAN (local-area networks), congestion/flow/error control, routing, addressing, internetworking (Internet) including TCP (transmission control protocol)."
+    droppable: true
+    prereqs:
+      - ECE 222
+      - STAT 206
+  SE 2xx:
+    title: Potential 2nd year database course
+    desc: "A potential course that could teach a subset of the CS 348 (databases) material at a second-year level."
+    droppable: true
+  SE 350:
+    title: Operating Systems
+    desc: "An introduction to the fundamentals of operating system function, and implementation. Topics include concurrency, synchronization, processes, threads, scheduling, memory management, file systems, device management, and security."
+    prereqs:
+      - CS 240
+      - CS 247
+      - ECE 222
+  SE 380:
+    title: Introduction to Feedback Control
+    desc: "Introduction to control systems. Advantages of closed-loop feedback systems. The role of the system mathematical model. Block diagrams and signal flow graphs. The basic control system design problem, stability in control systems. Frequency response analysis techniques. Root-locus analysis. Elementary lead-lag compensation."
+    prereqs:
+      - MATH 213
+  SE 390:
+    title: Design Project Planning
+    desc: "Students undertake a substantial customer-driven group project as part of the SE 390/490/491 design-project sequence covering all major phases of the software-engineering lifecycle. Lectures describe expectations and project-planning fundamentals. Students form groups, decide on a project concept, complete a project-approval process, develop high-level requirements for the project, perform a risk assessment, develop a test plan, and complete a first-iteration prototype. Social, legal, and economic factors are considered."
+    prereqs:
+      - CS 240
+      - CS 247
+  SE 463:
+    title: Software Requirements Specification and Analysis
+    desc: "Introduces students to the requirements definition phase of software development: Models, notations, and processes for software requirements identification, representation, analysis, and validation. Cost estimation from early documents and specifications."
+    prereqs:
+      - CS 247
+  SE 464:
+    title: "Software Design and Architectures"
+    desc: "Introduces students to the design, implementation, and evolution phases of software development. Software design processes, methods, and notation. Implementation of designs. Evolution of designs and implementations. Management of design activities."
+    prereqs:
+      - CS 247
+  SE 465:
+    title: "Software Testing and Quality Assurance"
+    desc: "Introduces students to systematic testing of software systems. Software verification, reviews, metrics, quality assurance, and prediction of software reliability and availability. Related management issues."
+    prereqs:
+      - CS 247
+  SE 490:
+    title: Design Project 1
+    desc: "Continuing from SE 390, students undertake a substantial customer-driven group project. Project groups establish and maintain project control processes, delivering a series of iterations on their initial SE 390 prototype. Adaptive methodologies are encouraged and supported."
+  SE 491:
+    title: Design Project 2
+    desc: "Final implementation, testing, and communication of the design project started in SE 390. Technical presentations by groups. Analysis of social, legal, and economic impacts. Final release of the project. Project retrospective."
 programs:
   current:
     terms:
@@ -197,6 +274,10 @@ programs:
       - 1B
       - 2A
       - 2B
+      - 3A
+      - 3B
+      - 4A
+      - 4B
     1A:
       courses:
         - CS 137
@@ -233,12 +314,50 @@ programs:
       nces:
         - WKRPT
         - TPM
+    3A:
+      courses:
+        - CS 341
+        - CS 349
+        - SE 350
+        - SE 465
+        - Elective
+    3B:
+      courses:
+        - CS 343
+        - CS 348
+        - SE 380
+        - SE 390
+        - SE 464
+        - Elective
+      nces:
+        - WKRPT
+    4A:
+      courses:
+        - ECE 358
+        - SE 463
+        - SE 490
+        - Elective
+        - Elective
+      nces:
+        - WKRPT
+    4B:
+      courses:
+        - SE 491
+        - Elective
+        - Elective
+        - Elective
+        - Elective
+        - Elective
   proposed:
     terms:
       - 1A
       - 1B
       - 2A
       - 2B
+      - 3A
+      - 3B
+      - 4A
+      - 4B
     1A:
       courses:
         - CS 137
@@ -254,24 +373,58 @@ programs:
         - ECE 140
         - ECE 124
         - ECE 106
+        - SE 192
       nces:
         - First coop
     2A:
       courses:
-        - CS 247
-        - MATH 239
+        - CS 241
+        - ECE 222
         - SE 212
+        - STAT 206
         - CHE 102
         - COMM Elective
     2B:
       courses:
-        - CS 241
-        - ECE 222
-        - STAT 206
         - CS 240
-        - MSCI 261
-        - MATH 213
+        - CS 247
+        - MATH 239
+        - SE 2xx
         - Elective
       nces:
         - WKRPT
         - TPM
+    3A:
+      courses:
+        - CS 341
+        - CS 349
+        - SE 350
+        - SE 465
+        - MATH 213
+        - Elective
+    3B:
+      courses:
+        - CS 343
+        - SE 380
+        - SE 390
+        - SE 464
+        - ECE 358
+        - Elective
+      nces:
+        - WKRPT
+    4A:
+      courses:
+        - SE 463
+        - SE 490
+        - Elective
+        - Elective
+        - Elective
+      nces:
+        - WKRPT
+    4B:
+      courses:
+        - SE 491
+        - Elective
+        - Elective
+        - Elective
+        - Elective
