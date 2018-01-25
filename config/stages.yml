@@ -38,7 +38,6 @@ stages:
     extras:
       - Elective
       - Elective
-      - SE 192
     title: "On this page, you get to design your own SE program. Look below: there are some extras below in 'Extras/Dropped courses' that you can replace existing courses with, and the summary tells you if you've broken prerequisite chains. What course sequence do you think would lead to the best program?"
     commentbox: "Any other general comments?"
   -
