@@ -49,17 +49,9 @@ stages:
           email: me@itsbilal.com
       curriculum:
         -
-          name: Bilal Akhtar
-          type: F17 Student rep
-          email: mbakhtar@uwaterloo.ca
-        -
           name: Patrick Lam
           type: SE Director
           email: se-director@uwaterloo.ca
-        -
-          name: Jason Milasincic
-          type: F17 Student rep
-          email: jmilasin@uwaterloo.ca
         -
           name: Emma Thomson
           type: W18 Student rep
@@ -68,7 +60,25 @@ stages:
           name: Jasper Chapman-Black
           type: W18 Student rep
           email: jasperchapmanblack@gmail.com
+        -
+          name: Bilal Akhtar
+          type: F17 Student rep
+          email: mbakhtar@uwaterloo.ca
+        -
+          name: Jason Milasincic
+          type: F17 Student rep
+          email: jmilasin@uwaterloo.ca
       classreps:
+        2018:
+          -
+            name: Josh Kergan
+            email: joshkergan@gmail.com
+          -
+            name: Navin Mahabir
+            email: nlhmahabir@gmail.com
+          -
+            name: Patrick Perrier
+            email: patrick.perrier@edu.uwaterloo.ca
         2019:
           -
             name: Bilal Akhtar
@@ -79,6 +89,36 @@ stages:
           -
             name: Jason Milasincic
             email: jmilasin@uwaterloo.ca
+        2020:
+          -
+            name: Jasper Chapman-Black
+            email: j6chapma@uwaterloo.ca
+          -
+            name: Bhavika Sharma
+            email: b6sharma@uwaterloo.ca
+          -
+            name: Daniel Prilik
+            email: dprilik@uwaterloo.ca
+        2021:
+          -
+            name: Clive Chan
+            email: clive.chan@uwaterloo.ca
+          -
+            name: Akshay Pall
+            email: akshay.pall@uwaterloo.ca
+          -
+            name: Kashish Goel
+            email: k2goel@uwaterloo.ca
+        2022:
+          -
+            name: Angelo Lao
+            email: aglao@uwaterloo.ca
+          -
+            name: Ahmed Hamodi
+            email: arhamodi@uwaterloo.ca
+          -
+            name: Yingning Gui
+            email: y3gui@uwaterloo.ca
 courses:
   MATH 135:
     title: Algebra for Honours Math
