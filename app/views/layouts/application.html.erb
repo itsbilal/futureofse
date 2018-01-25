@@ -19,5 +19,15 @@
 
   <body>
     <%= yield %>
+
+    <% if Rails.env.production? %>
+      <script src="https://cdn.ravenjs.com/3.22.1/raven.min.js"
+              crossorigin="anonymous"></script>
+
+      <script type="text/javascript">
+        Raven.config('https://6f1157e57dfa4a6fb08f6e32af442038@sentry.io/277244').install()
+      </script>
+    <% end %>
+
   </body>
 </html>
