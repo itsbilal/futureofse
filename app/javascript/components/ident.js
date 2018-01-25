@@ -69,6 +69,14 @@ class IdentStageView extends React.Component {
     }
   }
   render() {
+    let clsmap = function(cls) {
+      if (cls == 'other') {
+        return 0;
+      } else if (Number.isNaN(parseInt(cls))) {
+        return 1;
+      }
+      return parseInt(cls)
+    }
     return <div className="container container-fluid ident">
       <p>
         {this.props.current.message}
@@ -80,8 +88,8 @@ class IdentStageView extends React.Component {
           <option value="1">former/non-SE grad</option>
         </select>
         &nbsp; SE &nbsp;<select className="form-control" ref={(cls) => this.clsselect = cls } defaultValue={2019}>
-          { this.props.current.classes.map((cls) => (
-            <option key={parseInt(cls)} value={parseInt(cls)}>{cls}</option>
+          { this.props.current.classes.map((cls, idx) => (
+            <option key={idx} value={clsmap(cls)}>{cls}</option>
           )) }
         </select> &nbsp; student.
       </div>

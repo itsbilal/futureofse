@@ -33,11 +33,11 @@ class QuestionsStageView extends React.Component {
     return (<div className="container questions-stage">
         { this.props.current.questions.map((question, idx) => (
           <div key={idx} className="form-group">
-            <label className="col-form-label">
+            <label className="col-form-label" htmlFor={`question-${idx}`}>
               {question}
-              <textarea ref={(ref) => {this.questionRefs[idx] = ref}} placeholder="Answer" className="form-control">
-              </textarea>
             </label>
+            <textarea ref={(ref) => {this.questionRefs[idx] = ref}} placeholder="Answer" className="form-control" id={`question-${idx}`}>
+            </textarea>
           </div>
         ))}
       </div>
