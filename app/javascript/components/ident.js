@@ -103,9 +103,9 @@ class IdentStageView extends React.Component {
           </label>
         </div>
         {this.knownForm()}
-        <div className="ident-disclaimer">
-          This poll should take about 5 minutes of your time. If anything in the poll breaks, please let Bilal know at me@itsbilal.com. Otherwise, thanks for taking the poll and enjoy!
-        </div>
+      </div>
+      <div className="ident-disclaimer">
+        This poll should take about 5 minutes of your time. If anything in the poll breaks, please let Bilal know at me@itsbilal.com. Otherwise, thanks for taking the poll and enjoy!
       </div>
     </div>
   }

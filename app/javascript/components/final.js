@@ -24,6 +24,7 @@ class FinalStageView extends React.Component {
 
     return (<div className="final-stage container">
         <h4>Thanks for submitting your feedback!</h4>
+        <br />
         <p>
           This site is brought to you by Bilal Akhtar &lt;me@itsbilal.com&gt; and Dave Pagurek Van Mossel &lt;dave@davepagurek.com&gt;.
           Shoot us an email if you have any questions/comments/bug reports.
