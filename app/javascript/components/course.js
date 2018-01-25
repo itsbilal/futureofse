@@ -29,7 +29,7 @@ function collect(connect, monitor) {
 class Course extends React.Component {
   render() {
     return this.props.connectDragSource(
-      <div className="course course-course">
+      <div className={`course course-course ${this.props.editable == 'true' ? 'course-movable' : ''}`}>
         <span>{this.props.course.course}</span>
         { (this.props.course.droppable && (this.props.term != 'extras') && (this.props.editable == 'true')) ? (
           <button className="btn btn-link text-danger" type="button" onClick={this.props.courseDropped.bind(this, this.props.course, this.props.term)}>

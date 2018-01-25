@@ -10,6 +10,7 @@ class IdentStageView extends React.Component {
     let known = (this.state && this.state.known)
 
     this.props.setClass(cls)
+    window.dirty = true
 
     let requestBody = {
       cls,

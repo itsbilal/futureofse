@@ -8,3 +8,9 @@ ReactDOM.render(
   <VoteApp />,
   document.getElementById('vote-content'),
 );
+
+window.onbeforeunload = function() {
+  if (window.dirty == true) {
+    return "You will lose unsaved changes on all pages of this poll."
+  }
+}

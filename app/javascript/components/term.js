@@ -9,11 +9,21 @@ import { editorCourseMoved } from 'actions/editor'
 
 const dropSpec = {
   canDrop(props, monitor) {
-    let isExtras = (!props.isExtras || monitor.getItem().course.droppable)
-    return (props.editable === true || props.editable === 'true') && isExtras
+    return (props.editable === true || props.editable === 'true')
   },
   drop(props, monitor) {
     let item = monitor.getItem()
+
+    if (props.isExtras && !item.course.droppable) {
+      let dropMessage = "Cannot drop this course; it's a degree requirement. 😢"
+
+      if (item.course.dropMessage) {
+        dropMessage = item.course.dropMessage
+      }
+
+      alert(dropMessage)
+      return
+    }
 
     props.courseMoved(item.course.course, item.currentTerm, props.name)
   }

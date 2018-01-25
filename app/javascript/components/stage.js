@@ -36,6 +36,8 @@ class StageView extends React.Component {
         stage = <IdentStageView submitHook={this.submitHook.bind(this)} />
         break
       case 'final':
+        // Set dirty to false
+        window.dirty = false;
         stage = <FinalStageView submitHook={this.submitHook.bind(this)} />
         break
       case 'questions':
