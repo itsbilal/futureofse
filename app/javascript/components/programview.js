@@ -95,7 +95,9 @@ class ProgramView extends React.Component {
       <div className={`stage-program ${this.getDivClass()}`}>
         <div className="container">
           <div className="stage-program-title">
-            {this.props.current.title}
+            <p>{this.props.current.title}</p>
+            <a target="_blank" href="https://patricklam.ca/se-poll/">View a detailed rationale for current/proposed program design.</a>
+            <br />
             {compareBtn}
           </div>
         </div>

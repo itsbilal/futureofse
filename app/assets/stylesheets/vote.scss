@@ -30,6 +30,13 @@ nav {
   .stage-program-title {
     margin: 20px 0px;
     font-size: 14pt;
+    a {
+      padding: 6px 12px;
+      font-size: 1rem;
+    }
+    .btn-link {
+      cursor: pointer;
+    }
   }
   .stage-program-main {
     flex: 1 1 auto;
