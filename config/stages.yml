@@ -17,6 +17,7 @@ stages:
   -
     type: questions
     questions:
+      - "Databases: do you prefer (a) the status quo, with CS 348 in 3B; (b) a second-year-level full course in databases (SE 2xx); (c) 9 hours on writing SQL queries in ECE 192; or (d) no databases course?"
       - "What do you think about an overall goal of getting SE closer to 5 courses per term?"
       - "Should we strive for more flexibility in the program?"
       - "What are your feelings about adding an extra half-course (workload similar to SE 101) to 1B?"
@@ -29,7 +30,7 @@ stages:
     type: programview
     program: proposed
     compare: current
-    title: "This is a proposed course sequence that the curriculum committee is considering. Brief summary: 1B gets an extra half-course SE 192 (could have SQL); 2B gets a new DB course (maybe SE 192 is enough?) and loses MSCI 261 and MATH 213; 3A gains MATH 213; 3B loses CS 348 and gains ECE 358; 4A loses ECE 358 and gains an elective; one fewer elective in 4B. On the next page, you'll get a chance to move courses around."
+    title: "This is a proposed course sequence that the curriculum committee is considering. Brief summary: 1B gets an extra half-course SE 192 (could have SQL); 2B gets a new DB course (or maybe SE 192 is enough on its own?) and loses MSCI 261 and MATH 213; 3A gains MATH 213; 3B loses CS 348 and gains ECE 358; 4A loses ECE 358 and gains an elective; one fewer elective in 4B. On the next page, you'll get a chance to move courses around."
     commentbox: "Any general thoughts/comments about this program structure?"
   -
     type: programdesign
