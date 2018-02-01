@@ -26,8 +26,8 @@ class Program extends React.Component {
       <div className="program program-vertical">
         { this.props.program.terms.map((term) => (
           <div className="row" key={`row-${term}`}>
-            <Term key={`orig-${term}`} courses={this.props.courses} editable={this.props.editable} term={this.props.program[term]} title={`Proposed ${term}`} name={term} />
             <Term key={`diff-${term}`} courses={this.props.courses} editable="false" term={this.props.diff[term]} title={`Current ${term}`} name={term} />
+            <Term key={`orig-${term}`} courses={this.props.courses} editable={this.props.editable} term={this.props.program[term]} title={`Proposed ${term}`} name={term} />
           </div>
         )) }
       </div>
